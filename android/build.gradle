@@ -5,7 +5,8 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.1"
+    classpath "com.android.tools.build:gradle:7.2.2"
+    // classpath 'com.github.kezong:fat-aar:1.3.8'
   }
 }
 
@@ -14,6 +15,7 @@ def isNewArchitectureEnabled() {
 }
 
 apply plugin: "com.android.library"
+// apply plugin: 'com.kezong.fat-aar'
 
 if (isNewArchitectureEnabled()) {
   apply plugin: "com.facebook.react"
@@ -74,13 +76,25 @@ android {
 repositories {
   mavenCentral()
   google()
-}
+  jcenter()
 
+  maven{
+    url "$rootDir/../flutter_app/build/host/outputs/repo"
+  }
+  maven {
+    url 'https://storage.googleapis.com/download.flutter.io'
+  }
+}
 
 dependencies {
   // For < 0.71, this will be from the local maven repo
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
-  implementation "com.facebook.react:react-native:+"
+  implementation 'com.facebook.react:react-native:+'
+//  implementation fileTree(dir: "$rootProject/../flutter_app/build/host/outputs/repo/", include: "*.aar")
+//  debugImplementation "com.flutterapp.flutter_app:flutter_debug:1.0"
+//  releaseImplementation "com.flutterapp.flutter_app:flutter_release:1.0"
+  debugImplementation 'com.flutterapp.flutter_app:flutter_debug:1.0'
+  releaseImplementation 'com.flutterapp.flutter_app:flutter_release:1.0'
 }
 

@@ -13,6 +13,7 @@
     "android",
     "ios",
     "cpp",
+    "flutter_app/build/**/.*",
     "*.podspec",
     "!ios/build",
     "!android/build",
@@ -26,13 +27,13 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-flutter-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "build:flutter": "flutter build aar"
   },
   "keywords": [
     "react-native",

@@ -8,24 +8,22 @@ Library to connect Flutter with React Native
 npm install react-native-flutter
 ```
 
+or
+
+```sh
+yarn add react-native-flutter
+```
+
 ## Usage
 
 ```js
-import { multiply } from 'react-native-flutter';
+import FlutterLibrary from 'react-native-flutter';
 
 // ...
 
-const result = await multiply(3, 7);
+FlutterLibrary.showFlutter();
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
